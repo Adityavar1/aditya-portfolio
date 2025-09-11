@@ -1,0 +1,43 @@
+[
+  {
+    "name": "Imagify – AI Image Generator (SaaS)",
+    "desc": "Production-ready AI SaaS app for real-time image generation with MERN + Tailwind + Framer Motion. Implemented JWT authentication, credit-based balance system, and integrated Stripe/Razorpay for payments. Leveraged Clipdrop Text-to-Image API and MongoDB to store transaction histories; deployed frontend/backend with env-driven configs for scalability.",
+    "image": "imagify",
+    "category": "web",
+    "links": {
+      "view": "https://github.com/Adityavar1/Imagify-AI-Image-Generator-Full-Stack",
+      "code": "https://github.com/Adityavar1/Imagify-AI-Image-Generator-Full-Stack"
+    }
+  },
+  {
+    "name": "QuickShow (Event Sphere) – Events & Ticketing",
+    "desc": "Full-stack web app enabling event creation, discovery, and ticketing. Built with MERN + Tailwind and React Router, featuring role-based auth (JWT/Bcrypt), RESTful APIs for CRUD and RSVPs, and file upload support for event media. Optimized MongoDB queries for search/filtering and deployed with environment-based configs for scalable production use.",
+    "image": "Quick Show",
+    "category": "web",
+    "links": {
+      "view": "https://event-sphere-live-client.vercel.app/",
+      "code": "https://github.com/Adityavar1/QuickShow-Live"
+    }
+  },
+  {
+    "name": "Job Hunt Portal – Recruitment Platform",
+    "desc": "End-to-end job recruitment portal built with MERN stack. Implemented secure role-based access with Clerk authentication for candidates and JWT for recruiters. Designed RESTful APIs for job filtering, applications, and recruiter dashboards. Added Cloudinary uploads, Sentry monitoring, and Vercel deployment for reliability and scalability.",
+    "image": "jobhunt",
+    "category": "web",
+    "links": {
+      "view": "https://job-portal-full-stack-client-ruby-six.vercel.app",
+      "code": "https://github.com/Adityavar1/Job-Portal-Full-Stack"
+    }
+  },
+  {
+    "name": "QuickGPT – AI SaaS with LLM Integration",
+    "desc": "Full-stack AI SaaS app integrating Google Gemini API into customizable AI chat assistants. Developed React + Vite frontend and Node.js/Express backend with MongoDB Atlas for secure query and subscription storage. Implemented Stripe billing and ImageKit media storage. Deployed backend on Vercel with environment variable management for a scalable, production-ready infrastructure.",
+    "image": "QuickGPT",
+    "category": "web",
+    "links": {
+      "view": "https://quick-gpt-full-stack-saas-app-clien.vercel.app/",
+      "code": "https://github.com/Adityavar1/QuickGPT--full-stack-SaaS-app"
+    }
+  }
+]
+
