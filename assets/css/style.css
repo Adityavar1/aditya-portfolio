@@ -939,7 +939,7 @@ header .navbar ul li a:hover {
 }
 
 /* Only first 4 */
-.work .box-container > .box:nth-child(n+5){ display:none; }
+.work .box-container > .box:nth-child(n+7){ display:none; }
 
 /* Card */
 .work .box{

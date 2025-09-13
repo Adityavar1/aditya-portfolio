@@ -205,7 +205,6 @@ document.onkeydown = function (e) {
 }
 
 
-
 /* ===== SCROLL REVEAL ANIMATION ===== */
 const srtop = ScrollReveal({
     origin: 'top',

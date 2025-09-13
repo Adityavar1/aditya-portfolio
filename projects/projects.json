@@ -38,6 +38,26 @@
       "view": "https://quick-gpt-full-stack-saas-app-clien.vercel.app/",
       "code": "https://github.com/Adityavar1/QuickGPT--full-stack-SaaS-app"
     }
+  },
+  {
+    "name": "Image Captions Generator-CV/NLP",
+    "desc": "Developed an Image Captions Generator combining computer vision and NLP techniques. Used InceptionV3 to extract image features and an LSTM decoder for context-aware word generation. Pre-processed MS COCO dataset captions with byte-pair encoding and padding, using data generators for efficient GPU training. Optimized the model with Adam, learning rate decay, and early stopping based on validation BLEU-4. Achieved BLEU-4 = 0.36 and CIDEr = 1.12, matching state-of-the-art baselines. Reduced training time by 22% using mixed-precision and batched feature caching, ensuring high efficiency and accuracy.",
+    "image": "captions",
+    "category": "web",
+    "links": {
+      "view": "https://github.com/Adityavar1/Image-Caption-",
+      "code": "https://github.com/Adityavar1/Image-Caption-"
+    }
+  },
+  {
+    "name": "Face Recognition System-Computer Vision",
+    "desc": "I built a Face Recognition system using Principal Component Analysis (PCA) and eigenfaces for dimensionality reduction and feature extraction. The project involved processing and visualizing datasets of over 300 training and 80 testing images, applying reshaping, normalization, and mean centering techniques to prepare the data. I implemented visualization pipelines to display training/test samples, mean faces, and eigenfaces, and applied eigen decomposition to project images into a lower-dimensional eigenspace for recognition. This enabled effective face classification while significantly reducing computational complexity.",
+    "image": "face",
+    "category": "web",
+    "links": {
+      "view": "https://github.com/Adityavar1/Face-Recognition-CV",
+      "code": "https://github.com/Adityavar1/Face-Recognition-CV"
+    }
   }
 ]
 
