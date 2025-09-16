@@ -19,7 +19,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background: #f7f7f7;
+  background: #070606;
   font-family: "Poppins", sans-serif;
 }
 
@@ -194,6 +194,37 @@ header .navbar ul li a:hover {
     right: 0;
   }
 }
+
+/* =========================================
+   NAVBAR (mobile) — slight size bump, still one-line
+   Paste at the very end to override previous rules
+   ========================================= */
+@media (max-width: 900px){
+  /* give the logo a touch more size */
+  header .logo{
+    font-size: clamp(2.1rem, 7.2vw, 2.7rem);
+    padding-right: 54px;              /* room for hamburger */
+    white-space: nowrap;
+  }
+  header .logo .tagline{
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    white-space: nowrap;
+  }
+  /* slightly smaller hamburger so the text fits comfortably */
+  #menu{ font-size: 2.3rem; }
+}
+
+@media (max-width: 390px){
+  header .logo{
+    font-size: clamp(2.0rem, 7.9vw, 2.5rem);
+    padding-right: 54px;
+  }
+  header .logo .tagline{
+    font-size: clamp(1.08rem, 5.1vw, 1.32rem);
+  }
+  #menu{ font-size: 2.25rem; }
+}
+
 /* hamburger icon ends */
 
 /* hero section starts*/
@@ -310,7 +341,7 @@ header .navbar ul li a:hover {
 }
 
 @media (max-width: 600px) {
-  .home h1 { font-size: 2.5rem; }
+  .home h1 { font-size: 12rem; }
   .home h2, .home h3 { font-size: 1.8rem; }
   .home p { font-size: 1.2rem; }
 }
@@ -371,15 +402,26 @@ header .navbar ul li a:hover {
 /* social icons end */
 
 /* hero media queries starts*/
-@media (max-width: 450px) {
+@media (max-width: 500px) {
   .home .btn {
     margin: 4rem 0;
+  }
+   .home .image img{
+    width: clamp(100px, 38vw, 400px); /* bigger on mobile */
+    max-width: none;
+    margin: 0 !important;             /* cancel earlier negative margins */
+  }
+  .home .content h2,
+  .home .content h2 span{
+    /* clamp(min, fluid, max) — increase/decrease any of the three */
+    font-size: clamp(3rem, 15vw, 14rem);
+    line-height: 1.3;    /* optional: tighten/loosen line spacing */
   }
   .socials {
     margin-top: 12rem;
   }
   .home .image img {
-    margin-top: -12rem;
+    margin-top: -1rem;
   }
   .home .content p {
     font-size: 2.2rem;
@@ -389,6 +431,7 @@ header .navbar ul li a:hover {
   }
 }
 /* hero media queries ends*/
+
 /* hero section end */
 
 /* about section starts */
@@ -627,7 +670,80 @@ header .navbar ul li a:hover {
   .about .row .content .box-container {
     gap: 0;
   }
+
 }
+/* =========================================
+   ABOUT – Resume button (mobile polish)
+   Paste at the END of your CSS
+   ========================================= */
+
+/* Tablets & small laptops */
+@media (max-width: 900px){
+  .about .row .content .resumebtn{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2.2rem;                 /* was 6rem – tighten */
+  }
+  .about .row .content .resumebtn .btn{
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: 1.4rem 2rem;
+    border-radius: 12px;
+    background: linear-gradient(180deg,#2807bc 0%, #1a047e 100%);
+    box-shadow: 0 10px 24px rgba(86,76,255,.32);
+  }
+  .about .row .content .resumebtn .btn span{ font-size: 1.6rem; }
+  .about .row .content .resumebtn .btn i{ font-size: 1.35rem; }
+}
+
+/* Phones */
+@media (max-width: 600px){
+  .about .row .content .resumebtn{
+    margin-top: 1.6rem;                 /* comfortable spacing */
+  }
+  .about .row .content .resumebtn .btn{
+    width: 100%;                        /* full-width CTA */
+    max-width: 520px;                   /* but don’t grow too wide */
+    padding: 1.25rem 1.6rem;
+    border-radius: 14px;
+    justify-content: center;
+  }
+  .about .row .content .resumebtn .btn span{
+    font-size: 1.55rem;                 /* readable on mobile */
+    letter-spacing: .02rem;
+  }
+  .about .row .content .resumebtn .btn i{ font-size: 1.3rem; }
+  /* reduce motion on touch devices */
+  .about .row .content .resumebtn .btn:hover i{ transform: none; }
+}
+
+/* Narrow phones (iPhone 12/14 Pro width, etc.) */
+@media (max-width: 430px){
+  .about .row .content{ padding: 1.1rem 1.2rem; }
+  .about .row .content .resumebtn{ margin-top: 1.3rem; }
+  .about .row .content .resumebtn .btn{
+    padding: 1.15rem 1.4rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(86,76,255,.35);
+  }
+  .about .row .content .resumebtn .btn span{ font-size: 1.5rem; }
+}
+
+/* Extra-tight phones */
+@media (max-width: 360px){
+  .about .row .content .resumebtn .btn{
+    padding: 1.05rem 1.2rem;
+  }
+  .about .row .content .resumebtn .btn span{ font-size: 1.4rem; }
+}
+
+/* Accessibility focus (kept subtle, not changing UI) */
+.about .row .content .resumebtn .btn:focus-visible{
+  outline: 3px solid #c084fc;
+  outline-offset: 2px;
+}
+
 /* about media queries ends*/
 /* Bigger paragraph inside About */
 .about .row .content p {
@@ -1158,7 +1274,19 @@ header .navbar ul li a:hover {
 .experience .timeline-item .card ul{ margin:.25rem 0 0 1.25rem; padding:0; }
 .experience .timeline-item .card li{ margin:.28rem 0; font-size:1.5rem; line-height:1.45; }
 
-/* ===== Tablet tightening (<= 1024px) ===== */
+
+/* testing*/
+/* ================================
+   EXPERIENCE – MOBILE (A) with DATE BESIDE ICON
+   ================================ */
+
+/* Tablet text sizing (unchanged UI) */
+/* =========================================
+   EXPERIENCE – MOBILE (A) with smaller DATE
+   (Replace your previous @media (max-width: 940px) block with this)
+   ========================================= */
+
+/* Tablet text sizing (unchanged UI) */
 @media (max-width: 1024px){
   :root{ --row-min-h:210px; }
   .experience .timeline-item .card .role{ font-size:1.9rem; }
@@ -1166,41 +1294,7 @@ header .navbar ul li a:hover {
   .experience .timeline-item .card li{ font-size:1.25rem; }
 }
 
-/* ===== Mobile stack (<= 860px) — fixes for 1st & 3rd left items ===== */
-@media (max-width: 860px){
-  /* bring spine just left of content */
-  .experience .timeline::after{
-    left: calc(24px + 26px);
-    transform:none;
-  }
-  /* stack: node on its own row, then date, then card */
-  .experience .timeline-item{
-    grid-template-columns: var(--center-col) 1fr;
-    grid-template-areas:
-      "center center"
-      "center date"
-      "center card";
-    gap:8px 14px;
-    margin:18px 0;
-    align-items:start;              /* prevent vertical drift */
-  }
-  .experience .timeline-item .node{
-    justify-self:center; align-self:center;
-    width:44px; height:44px;       /* slightly smaller on mobile */
-  }
-  .experience .timeline-item .date{
-    justify-self:start; text-align:left; height:30px; line-height:30px; font-size:.95rem;
-  }
-  .experience .timeline-item .card{
-    grid-area:card; width:100%;
-    padding:1rem 1.05rem;
-  }
-  .experience .timeline-item .card .role{ font-size:1.35rem; }
-  .experience .timeline-item .card .company{ font-size:1.05rem; }
-  .experience .timeline-item .card li{ font-size:1rem; line-height:1.45; }
-}
-
-/* ===== Micro-resets (kill legacy styles if still present) ===== */
+/* Kill legacy zig-zag artifacts globally */
 .experience .left, .experience .right,
 .experience .left::before, .experience .left::after,
 .experience .right::before, .experience .right::after{
@@ -1208,77 +1302,111 @@ header .navbar ul li a:hover {
   content:none !important; border:0 !important; box-shadow:none !important;
 }
 
-/* ------------ QUICK PATCH FOR MOBILE LAYOUT ------------ */
+/* ===== MOBILE LAYOUT (<= 940px) ===== */
+@media (max-width: 940px){
+  /* Prevent odd caps/wrapping inside cards */
+  .experience .timeline-item .card,
+  .experience .timeline-item .card *{
+    text-transform:none !important;
+    writing-mode:horizontal-tb !important;
+    white-space:normal !important;
+    word-break:normal !important;
+    overflow-wrap:break-word !important;
+  }
 
-/* 1) Stop global capitalization / odd wrapping inside cards */
-.experience .timeline-item .card,
-.experience .timeline-item .card * {
-  text-transform: none !important;
-  word-break: normal !important;
-  overflow-wrap: break-word !important; /* wrap long words nicely */
+  /* Hide the center spine */
+  .experience .timeline::after{ display:none !important; }
+
+  /* Top row: [node | date], second row: [card] */
+  .experience .timeline-item{
+    display:flex !important;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px 12px;
+    margin:20px 0;
+  }
+
+  /* Node (icon) */
+  .experience .timeline-item .node{
+    order:1;
+    flex:0 0 auto;
+    width:44px; height:44px;
+    display:grid; place-items:center;
+    margin:0;
+  }
+
+  /* DATE – smaller pill next to node */
+  .experience .timeline-item .date{
+    order:2;
+    flex:0 0 auto;                  /* don't stretch; hug content */
+    min-width:0;
+    display:inline-flex;
+    align-items:center;
+    justify-content:flex-start;
+    height:34px;                    /* smaller than node */
+    line-height:34px;
+    padding:0 12px;                 /* compact padding */
+    font-size:.9rem;                /* slightly smaller text */
+    border-radius:999px;            /* keep pill shape */
+    white-space:nowrap;             /* keep on one line */
+    text-align:left;
+  }
+
+  /* Card full width on next row */
+  .experience .timeline-item .card{
+    order:3;
+    flex:0 0 100%;
+    width:100% !important;
+    max-width:none !important;
+    box-sizing:border-box;
+    padding:1rem 1.05rem;
+  }
+
+  /* Slightly smaller headings for narrow screens */
+  .experience .timeline-item .card .role{ font-size:1.3rem; }
+  .experience .timeline-item .card .company{ font-size:1.02rem; }
+  .experience .timeline-item .card li{ font-size:.98rem; line-height:1.45; }
 }
 
-/* 2) Make sure the timeline actually has room on mobile */
-@media (max-width: 860px) {
-  .experience { padding-left: 0; padding-right: 0; }        /* ignore any global section padding */
-  .experience .timeline { width: 100%; padding: 0 16px; }    /* give breathing room at the sides */
-
-  /* Use a simple 2-col grid: [node] [content] */
-  .experience .timeline-item {
-    grid-template-columns: 56px 1fr !important;
-    grid-template-areas:
-      "center center"
-      "center date"
-      "center card" !important;
-    gap: 8px 14px;
-    align-items: start;    /* keeps node/date/card aligned to the same row center */
-    margin: 18px 0;
+/* Extra-small phones */
+@media (max-width: 430px){
+  .experience .timeline-item .node{ width:40px; height:40px; }
+  .experience .timeline-item .date{
+    height:30px;
+    line-height:30px;
+    font-size:.86rem;
+    padding:0 10px;
   }
-
-  /* Node stays centered in its column */
-  .experience .timeline-item .node {
-    grid-area: center;
-    justify-self: center;
-    align-self: center;
-    width: 44px; height: 44px;
-  }
-
-  /* Date sits next to the node, full width available */
-  .experience .timeline-item .date {
-    grid-area: date;
-    justify-self: start;
-    text-align: left;
-    height: 30px; line-height: 30px; padding: 0 12px;
-    max-width: 100%;
-  }
-
-  /* Card should fill the content column (no fixed widths) */
-  .experience .timeline-item .card {
-    grid-area: card;
-    width: 100% !important;
-    max-width: none !important;
-    box-sizing: border-box;
-    padding: 1rem 1.05rem;
-  }
-
-  /* Tighter mobile type so lines don’t explode */
-  .experience .timeline-item .card .role    { font-size: 1.35rem; }
-  .experience .timeline-item .card .company { font-size: 1.05rem; }
-  .experience .timeline-item .card li       { font-size: 1rem; line-height: 1.45; }
+  .experience .timeline-item .card{ padding:.9rem .95rem; }
 }
+/* ================================
+   EXPERIENCE – center NODE + DATE (mobile)
+   Append this after your current styles
+   ================================ */
+@media (max-width: 940px){
+  /* Center the top row contents as a group */
+  .experience .timeline-item{
+    justify-content: center;     /* centers node + date above the card */
+  }
 
-/* 3) Make sure the spine sits just left of the content on mobile */
-@media (max-width: 860px){
-  .experience .timeline::after{
-    left: calc(24px + 26px); /* aligns with the node column */
-    transform: none;
+  /* Node next to date, both centered */
+  .experience .timeline-item .node{
+    order: 1;
+    margin: 0 8px 0 0;           /* tiny gap before date */
+  }
+
+  .experience .timeline-item .date{
+    order: 2;
+    text-align: center;
+    justify-content: center;     /* center text inside the pill */
   }
 }
 
-.experience .left, .experience .right,
-.experience .left::before, .experience .left::after,
-.experience .right::before, .experience .right::after {
-  content: none !important; border: 0 !important; position: static !important;
+/* keep it centered on extra-small phones, too */
+@media (max-width: 430px){
+  .experience .timeline-item{ justify-content: center; }
+  .experience .timeline-item .node{ margin-right: 8px; }
+  .experience .timeline-item .date{ justify-content: center; text-align: center; }
 }
 
 /* experience*/
